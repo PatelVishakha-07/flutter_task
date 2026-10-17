@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:products/login/login_controller.dart';
+import 'package:products/register/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -99,7 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Text("Don't have an account?"),
                         TextButton(
                           child: Text("Sign up",style: TextStyle(color: Colors.blue.shade700)),
-                          onPressed: (){},
+                          onPressed: (){
+                            Get.to(RegisterScreen());
+                          },
                           )
                       ],
                     )

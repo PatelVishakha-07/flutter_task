@@ -1,5 +1,6 @@
 import "package:dio/dio.dart";
 import "package:products/login/login_model.dart";
+import "package:products/register/register_model.dart";
 
 class ApiService{
 
@@ -26,4 +27,18 @@ class ApiService{
         throw Exception("Invalid username or password");
       }
   }
+
+
+  Future<Register> registerService(Register user) async{
+    try{
+      final response = await dio.post("https://dummyjson.com/users/add",
+        data:user.toJson()
+      );
+      return Register.fromJson(response.data);
+    }
+    catch(e){
+      throw Exception(e);
+    }
+  }
+
 }
