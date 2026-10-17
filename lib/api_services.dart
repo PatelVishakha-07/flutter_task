@@ -5,24 +5,25 @@ class ApiService{
 
   Dio dio = Dio();
 
-  Future<User> loginService(String username, password) async{
+  Future<Login> loginService(String username, password) async{
       try{
         final response = await dio.post("https://dummyjson.com/auth/login",
         data: {
-          "email":username,
+          "username":username,
           "password":password
         });
 
         if(response.statusCode == 200 || response.statusCode == 201){
-          final userData = User.fromJson(response.data);
+          final userData = Login.fromJson(response.data);
           return userData;
         }
+
         else{
           throw Exception("Error!!!");
         }
       }
       catch(e){
-        throw Exception(e);
+        throw Exception("Invalid username or password");
       }
   }
 }
