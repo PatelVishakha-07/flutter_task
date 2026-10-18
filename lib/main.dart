@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:products/login/login_screen.dart';
 import 'package:products/register/register_screen.dart';
+import 'package:products/user/user_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           seedColor: Colors.deepPurple,
         ),
       ),
-      home: RegisterScreen(),
+      home: LoginScreen(),
     );
   }
 }
