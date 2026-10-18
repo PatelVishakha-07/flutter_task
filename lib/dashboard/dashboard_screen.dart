@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:products/dashboard/productDetails_screen.dart';
-import 'package:products/dashboard/productsList_screen.dart';
-import 'package:products/dashboard/user_details.dart';
+import 'package:products/product//productsList_screen.dart';
+import 'package:products/user/user_screen.dart';
 
 class Dashboard extends StatefulWidget {
   final int id;

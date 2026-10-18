@@ -16,7 +16,7 @@ class ProductController extends GetxController
   {
     final respo =await api.productService();
 
-    if(respo.products == null || respo.products !.isEmpty)
+    if(respo.products == null || respo.products!.isEmpty)
       {
         Get.snackbar("Error", "Please entre again later",
         backgroundColor: Colors.red,

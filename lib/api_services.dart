@@ -61,7 +61,7 @@ class ApiService{
     }
     catch(e)
     {
-      print(e);
+      print("Exception--------------$e");
       throw("error",Exception);
 
     }

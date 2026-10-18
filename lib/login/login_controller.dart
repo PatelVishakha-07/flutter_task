@@ -22,6 +22,7 @@ class LoginController extends GetxController{
       final response = await api.loginService(username.text, password.text);
 
       showSnackbar("Login successful");
+      Get.to(Dashboard(id: response.id!));
     }
     catch(e){
       showSnackbar(e.toString().replaceFirst("Exception: ", ""), error: true);
