@@ -42,8 +42,7 @@ class ApiService{
     }
   }
 
-  Future<Product> productService() async
-  {
+  Future<Product> productService() async {
     try
     {
       final respo = await dio.get("https://dummyjson.com/products");

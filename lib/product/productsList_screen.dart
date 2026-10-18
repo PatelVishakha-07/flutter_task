@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:products/dashboard/dashboard_controller.dart';
-import 'package:products/dashboard/productDetails_screen.dart';
+import 'package:products/product/productDetails_screen.dart';
 
 class ProductsList extends StatefulWidget {
    ProductsList({super.key});
@@ -41,7 +41,15 @@ class _ProductsListState extends State<ProductsList> {
               final data = controller.ProductData[index];
               return InkWell(
                 onTap: (){
-                  Get.to(ProductDetails());
+                  if(data.id != null)
+                    {
+                      Get.to(ProductDetails(id: data.id!));
+                    }
+                  else
+                    {
+                      Get.snackbar("Error:", "Product id is missing...!");
+                    }
+
                 },
                 child: Card(
                   child: ListTile(
