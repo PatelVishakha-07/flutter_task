@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:products/api_services.dart';
+import 'package:products/dashboard/dashboard_screen.dart';
 
 class LoginController extends GetxController{
 
@@ -20,6 +21,7 @@ class LoginController extends GetxController{
     try{
       final response = await api.loginService(username.text, password.text);
       showSnackbar("Login successful");
+      Get.to(Dashboard(id: response.id!));
     }
     catch(e){
       showSnackbar(e.toString().replaceFirst("Exception: ", ""), error: true);

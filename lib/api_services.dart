@@ -2,6 +2,7 @@ import "package:dio/dio.dart";
 import "package:products/login/login_model.dart";
 import "package:products/register/register_model.dart";
 import "package:products/dashboard/dashboard_model.dart";
+import "package:products/user/user_model.dart";
 
 class ApiService{
 
@@ -68,5 +69,16 @@ class ApiService{
 
   }
 
+
+  Future<User> userService(int id) async{
+    try{
+      final response = await dio.get("https://dummyjson.com/users/$id");
+      return User.fromJson(response.data);
+    }
+    on DioException catch(e){
+      final message = e.response?.data?['message'] ?? "Something went wrong";
+      throw Exception(message);
+    }
+  }
 
 }

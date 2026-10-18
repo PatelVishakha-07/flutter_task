@@ -1,19 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:products/dashboard/productDetails_screen.dart';
 import 'package:products/dashboard/productsList_screen.dart';
-import 'package:products/dashboard/user_details.dart';
+import 'package:products/user/user_screen.dart';
 
 class Dashboard extends StatefulWidget {
-   Dashboard({super.key});
+  final int id;
+  Dashboard({super.key, required this.id});
 
   @override
   State<Dashboard> createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
+  late final List<Widget> Screens;
   int CurrentI =0;
-  List Screens =[ProductsList(), UserDetails()];
+
+  @override
+  void initState() {
+    super.initState();
+    Screens = [ProductsList(), UserScreen(id: widget.id)];
+  }
 
   void changeIndex(int index)
   {
